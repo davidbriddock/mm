@@ -1,0 +1,1 @@
+This is the Micro Mart magazine source code repository.
