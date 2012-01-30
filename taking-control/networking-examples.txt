@@ -1,0 +1,67 @@
+FTP
+
+$ ftp anonymous@publicsite.com
+
+ftp> help
+
+ftp> get holiday.jpg
+ftp> cd backups
+ftp> put backups/*.zip
+
+
+Secure Remote Access
+
+$ ssh remotesite.com 
+$ ssh david@remotesite.com 
+$ ssh david@192.168.0.111
+
+$ scp note.txt remotesite.com:mynote.txt 
+
+
+Ping 
+
+$ ping -c 6 www.google.com
+$ ping -c 6 209.85.229.104
+
+ 
+Curl
+
+$ curl http://www.theregister.co.uk/
+
+$ curl http://www.theregister.co.uk/{software,science}/
+
+$ curl ftp://www.mysite.com/image[001-100].jpg
+$ curl ftp://www.mysite.com/image[1-100:10].jpg
+$ curl ftp://www.mysite.com/{2010,2011}/file-[a-z].txt
+
+$ curl https://www.securesite.com/
+$ curl --cert mysert.pem https://www.securesite.com/
+
+
+Wget
+
+$ wget -O bbc-news.html http://www.bbc.co.uk/news/ 
+$ wget http://feeds.bbci.co.uk/news/technology/rss.xml
+
+Perform a recursive download for a specified web site:
+
+$ wget -m http://www.mysite.com/
+
+More control with the -r recursive example:
+  
+$ wget -r --level=1 http://www.mysite.com
+
+
+Cygwin 
+
+Find all the shares on a mycomputer:
+
+net view \\\\mycomputer
+
+Move to a particular share directory:
+
+$ cd //mycomputer/backups
+
+Mount the share to the X: drive:
+
+$ net use x \\\\mycomputer\backups

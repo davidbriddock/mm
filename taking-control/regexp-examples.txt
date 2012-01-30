@@ -1,0 +1,88 @@
+Line anchors:
+
+"^Micro"
+"Micro$"
+"^$"
+
+Word anchors:
+
+"\<art\>"
+"\<Mart\>"
+
+Character sets:
+
+"^..c"
+"[xyz]"
+"[a-z]"
+"[a-cA-C]"
+"[0-9]"
+
+"[^0-9]"
+
+"[[:alpha:]]"
+"[[:alnum:]]"
+"[[:digit:]]"
+"[[:cntrl:]]"
+
+Modifiers:
+
+"^Micro.*mag"
+"^Micro.*\.pdf$"
+
+"x\+"
+"x\?"
+"x\|art"
+
+"07[0-9]\{9\}"
+"07[0-9]\{8,\}"
+"07[0-9]\{8,10\}"
+  
+
+Grep
+
+$ grep "[Dd]avid" *
+$ grep -r "[Dd]avid" * | more
+$ ls -R *.txt | grep -r "[Dd]avid" * | more
+$ echo "07912345678" | grep "07[0-9]\{9\}"
+
+$ grep -rc "<html>" * | more  
+$ grep -rh "<title>" * > titles.out   
+$ grep -i "micro" *
+$ grep -vc "[<>]" *
+
+$ grep -rac "[Cc]opyright" /cygdrive/c/Windows/*.exe 
+
+
+Basic Syntax Regex Reference
+
+Anchors
+^	anchor to the start
+$	anchor to the end
+\<	anchor to the start of a word
+\>	anchor to the end of a word
+
+Character Sets
+.		match a single character
+[abc]		match a character in this list	 
+[^abc]		match a character not in this list
+(...)		an expression group or block
+[:alpha:]	POSIX alphabetic characters
+[:alnum:]	POSIX alphanumeric characters
+[:digit:]	POSIX digits
+[:xdigit:]	POSIX hexadecimal digits
+[:lower:]	POSIX lowercase alphabetic characters
+[:upper:]	POSIX uppercase alphabetic characters
+[:punct:]	POSIX punctuation marks
+[:print:]	POSIX printable characters
+[:graphic:]	POSIX graphic characters
+[:cntrl:]	POSIX control characters
+[:space:]	POSIX any whitespace character
+
+Modifiers
+*		zero or more repetitions 
+\+		one or more repetitions
+\?		zero or one repetition
+\|		or
+\{n\}		exactly n repetitions
+\{n,\}		n or more repetitions
+\{n,m\}	between n and m repetitions

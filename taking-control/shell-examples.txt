@@ -1,0 +1,52 @@
+Command examples:
+
+$ ls .
+$ ls -l .
+$ ls -al .
+$ ls winprogs/*
+$ ls winprogs | sort -r > winprogs.txt
+
+$ ls /cygdrive/c
+$ ls /cygdrive/d
+$ ls '/cygdrive/c/Program Files'
+$ ln -s '/cygdrive/c/Program Files' winprogs
+
+$ man mkdir
+$ man -k pdf
+$ man builtin
+
+$ alias docsize='ls -R /cygdrive/c/Users/David/Documents/* | echo `wc -c` bytes'
+$ docsize
+ 
+$ cd ~
+$ echo 'PATH=$PATH:~' >> .bash_profile
+$ . .bash_profile
+
+$ chmod +x myscript
+$ ls -l myscript
+
+
+Script examples:
+
+#!/bin/bash
+TODAY=`date +%Y%m%d`
+mkdir backup-$TODAY
+
+for FILE in `ls -R *.txt` 
+do
+   cp $FILE backup-$TODAY
+done
+
+# checks if the day is a Sunday:
+DAY=`date +%a`
+if [ $DAY = 'Sun' ]
+then
+Ê  echo 'Backup day'
+fi
+
+# test whether a file is executable:
+if [ ! -x $FILE ]
+then
+ Ê echo "Cannot execute "$FILE
+fi
+

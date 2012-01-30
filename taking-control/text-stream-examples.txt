@@ -1,0 +1,80 @@
+
+$ sort
+$ uniq
+$ ls -F * | tee dir.txt | sort -r
+$ cat myfile | tr 'a-z' 'A-Z'
+
+
+Sed
+
+Delete line examples:
+
+$ sed -e 'd' .bash_history
+$ cat .bash_history | sed -e 'd'
+$ sed -e '1d' .bash_history
+$ sed -e '1,10d' .bash_history
+
+The first example will only delete line one, all the other lines will be sent to standard output (stdout), and therefore output to the screen. The second option will do something similar, but delete the first ten lines, outputting the rest to stdout.
+
+Regular expressions:
+
+$ sed -e '/^ls/d' .bash_history
+$ sed -e '/^ls/!d' .bash_history
+$ sed -n -e '/^ls/p' .bash_history
+
+Substitutions:
+
+$ sed -e 's/[Ll]inux/GNU Linux/' index.html
+$ sed -e 's/[Ll]inux/GNU Linux/g' index.html
+$ sed -e 's/<[^>]*>//g' index.html
+
+Commands:
+
+$ sed -e 's/<[^>]*>//g;/^$/d' index.html
+$ sed -e 's/<[^>]*>//g' -e '/^$/d' index.html
+
+Files:
+
+{
+  s/<[^>]*>//g
+  /^$/d
+}
+
+Or just in body:
+
+/<body>/,/<\/body>/{
+  s/<[^>]*>//g
+  /^$/d
+}
+
+Execute with:
+
+$ sed -f notags.sed index.html
+
+
+Awk
+
+Command line example which reads file1, performs a global substitution of  'UNIX' to Linux, and then writes the results to file2.
+
+$ awk '{gsub(/UNIX/, "Linux"); print}' file1 > file2
+
+Awk file to process the multi-column output produced of ls -al command:
+
+BEGIN {
+  SIZE=200
+  COUNT=0
+  printf "Finding files over %d bytes\n", SIZE
+}
+{
+  if (length($0) == 0) next
+  if ($1 ~ "^d") next
+  if ($5 > SIZE) { COUNT++; print }
+}
+END {
+  printf "Found %d files.\n", COUNT
+}
+
+This script is executed using the -f option in a command like this:
+
+$ ls -l | awk -f size.awk
+

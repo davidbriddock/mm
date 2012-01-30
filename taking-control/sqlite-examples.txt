@@ -1,0 +1,68 @@
+sqlite3 test.db "select * from contacts;"
+
+# sqlite3 test.db
+
+sqlite> .tables
+
+sqlite> create table messages (
+...> code, info
+...> );
+
+sqlite> .tables
+
+sqlite> insert into messages 
+...> values
+...> (111, 'a message');
+
+sqlite> insert into messages 
+...> values
+...> (222, 'another message');
+
+sqlite> select * from messages;
+
+111|a message
+222|another message
+
+
+Dot commands:
+
+> sqlite3 test.db
+
+sqlite> .help
+
+sqlite> .backup test.1.bak
+sqlite> .restore test.1.bak
+
+sqlite> .output messages.sql
+
+sqlite> .dump messages
+
+sqlite> .output stdout
+
+
+Files:
+
+BEGIN TRANSACTION;
+CREATE TABLE emails (
+type, email
+);
+INSERT INTO "messages" VALUES('home','me@mymail.com');
+INSERT INTO "messages" VALUES('work','me@work.com');
+COMMIT;
+
+sqlite> .read emails.sql
+
+sqlite> .tables
+
+sqlite> .quit
+
+
+Python:
+
+import sqlite3
+conn = sqlite3.connect('test.db')
+cur = conn.cursor()
+rows = cur.execute('select * from messages;')
+sql = cur.execute('.dump messages')
+cur.close()
+conn.close()
