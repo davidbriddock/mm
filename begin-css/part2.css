@@ -1,0 +1,86 @@
+body { 
+  background: black url(bg.png) repeat;
+  font-family: Verdana, sans-serif;  
+}
+
+#page-container {
+  background-color: whitesmoke;
+  min-width: 600px;
+  min-height: 500px;
+  margin: 0px;
+}
+
+#page-footer {
+  margin: 10px;
+  text-align: center;
+  font-family: Verdana, san-serif;
+  font-size: 80%;  
+  color: #DDD;
+}
+
+#page-banner {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  height: 80px;
+  background: url(banner.png) no-repeat center top;
+  text-align: center;
+}
+
+#page-banner-text {
+  padding: 15px;
+  font: small-caps bold 24pt Verdana, sans-serif;
+  letter-spacing: 5pt; 
+  color: Yellow;
+}
+
+.left-column {
+  width: 28%;
+  float: left;
+  border: 2px solid #DDD;
+  text-align: left;
+}
+
+.right-column {
+  width: 70%;
+  float: right;
+  border: 2px solid #DDD;
+  text-align: left;
+  background-color: white;
+}
+
+ul {
+  padding-top: 5px; 
+  padding-bottom: 5px; 
+}
+
+p.item-title {
+  background-color: #DDD;   
+  padding: 5px;
+  font-weight: bold;
+}
+
+p.item-body {
+  padding: 5px;
+  text-align: justify;
+  text-indent: 1em;
+}
+
+a:link { color: #F80; }
+a:link { color: #F08; }
+a:visited {color: #888; }
+
+/*
+Attention grabbing hyperlink alternative
+
+a:link {
+  color: #F80; 
+  text-decoration: underline blink;
+}
+a:hover {
+  background-color: black;
+  text-decoration: underline;
+}
+a:visited {color: #888;}
+
+*/
