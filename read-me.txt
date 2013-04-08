@@ -1,1 +1,5 @@
 This is the Micro Mart magazine source code repository.
+
+http://www.micromart.co.uk/
+
+http://www.micromart.co.uk/authors/david-briddock
